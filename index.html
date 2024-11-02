@@ -3,144 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koleksi Dewasa</title>
+    <title>Selamat Datang di Koleksi Dewasa</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
-        /* Style tambahan untuk tampilan lebih menarik */
-        body {
+        /* Full-height layout */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
             background-color: #2d2d2d;
             color: #f5f5f5;
             font-family: Arial, sans-serif;
-        }
-        .card {
-            background-color: #444;
-            border: none;
-            border-radius: 8px;
-            transition: transform 0.3s;
-            margin: 10px; /* Memberikan jarak antar card */
-            display: flex;
-            flex-direction: column; /* Ensures that the card body expands correctly */
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 0; /* Remove default margin */
-        }
-        .card-text {
-            color: #ccc;
-            flex: 1; /* Allows the text to take available space */
-            margin: 10px 0; /* Adds spacing between elements */
-        }
-        .card-img-top {
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            width: 100%; /* Ensure the image covers the full width */
-            height: auto; /* Adjust height automatically based on width */
-            max-height: 200px; /* Set a maximum height for the image */
-            object-fit: cover; /* Ensures the image covers the area */
-        }
-        .btn-watch {
-            background-color: #ff5733;
-            color: #fff;
-            font-weight: bold;
-            border: none;
-            transition: background-color 0.3s;
-            margin-top: auto; /* Pushes button to the bottom */
-            padding: 10px; /* Adds padding for better appearance */
-            text-decoration: none;
-        }
-        .btn-watch:hover {
-            background-color: #e04e2b;
-        }
-        /* Style tambahan untuk header */
-        .header-title {
             text-align: center;
+        }
+
+        /* Content wrapper to push footer to bottom */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-section {
+            padding: 30px 10px;
+            background: url('https://source.unsplash.com/featured/?movie') no-repeat center center/cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .hero-title {
             font-size: 2rem;
             font-weight: bold;
+            margin: 0;
         }
-        .card-body {
-            display: flex;
-            flex-direction: column; /* Stacks children vertically */
-            justify-content: space-between; /* Space between title, text and button */
-            height: 100%; /* Ensures card body fills the card height */
+        .hero-description {
+            font-size: 1rem;
+            margin-top: 10px;
+            margin-bottom: 30px;
         }
-        @media (max-width: 576px) {
-            .card-title {
-                font-size: 1.1rem; /* Slightly smaller title for small screens */
+        .btn-start {
+            background-color: #ff5733;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-start:hover {
+            background-color: #e04e2b;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 576px) {
+            .hero-title {
+                font-size: 2.5rem;
             }
-            .card-text {
-                font-size: 0.9rem; /* Smaller text for small screens */
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            .btn-start {
+                font-size: 1rem;
+                padding: 10px 25px;
             }
         }
         @media (min-width: 768px) {
-            .card-title {
-                font-size: 1.3rem; /* Larger title for medium screens */
+            .hero-title {
+                font-size: 3rem;
             }
-            .card-text {
-                font-size: 1rem; /* Standard text for medium screens */
+            .hero-description {
+                font-size: 1.2rem;
+            }
+            .btn-start {
+                font-size: 1.1rem;
+                padding: 12px 30px;
+            }
+        }
+        @media (min-width: 992px) {
+            .hero-section {
+                padding: 50px 20px;
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .hero-description {
+                font-size: 1.3rem;
+            }
+            .btn-start {
+                font-size: 1.2rem;
+                padding: 15px 35px;
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="container text-center py-4">
-        <h1 class="header-title">Koleksi Dewasa</h1>
-        <p class="text-center">Menyediakan Ribuan Media yang lagi viral di Indonesia</p>
-    </header>
-
-    <main class="container my-4">
-        <div class="row justify-content-center">
-            <!-- Card Film 1 -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCMZM5Ju6rMy2-tOLieINxpXLc-NjWBf4K75qjVZF6n3jJZ_rwrX35J_4B6yugj5yW-es&usqp=CAU" class="card-img-top" alt="Film 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Cewek SMA VIRAL Ngewe Sama Guru</h5>
-                        <p class="card-text">Skandal ABG SMA viral asal medan.</p>
-                        <a href="film1.html" class="btn btn-watch w-100">Klik Disini Untuk Nonton</a>
-                    </div>
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <header class="hero-section">
+                        <h1 class="hero-title">Selamat Datang di Koleksi Film Dewasa yang Lagi Viral</h1>
+                        <p class="hero-description">Temukan ribuan media yang lagi viral di Indonesia.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="landing.html" class="btn btn-start">Klik Disini Untuk Memulai Nonton</a>
+                        </div>
+                    </header>
                 </div>
             </div>
-            <!-- Card Film 2 -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp-83Sx0jFHVOs4E1t89df-LP_pvmKE1GFeQ&s" class="card-img-top" alt="Film 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Rekaman Tarina Putri Viral Terbaru</h5>
-                        <p class="card-text">Rekaman Tarina Putri Di Viralin Sama mantannya FULL DURASI.</p>
-                        <a href="film1.html" class="btn btn-watch w-100">Klik Disini Untuk Nonton</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card Film 3 -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMwEKIRuBD9iIzE71REJoSadu95Vfvlk1A2A&s" class="card-img-top" alt="Film 3">
-                    <div class="card-body">
-                        <h5 class="card-title">MS BREEWC/BREEWALES FULL KOLEKSI</h5>
-                        <p class="card-text">Video lengkap dengan ribuan media artis cantik MSBreewales Terbaru.</p>
-                        <a href="film1.html" class="btn btn-watch w-100">Klik Disini Untuk Nonton</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Card Film 4 -->
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
-                <div class="card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp7__YmLYsrfqrs5n5nN1e9tpYMwLL6MlEiQ&s" class="card-img-top" alt="Film 4">
-                    <div class="card-body">
-                        <h5 class="card-title">Cewek Pramuka Colmek</h5>
-                        <p class="card-text">ABG Sekolahan Colmek di WC Sekolah pada Saat jam Istirahat.</p>
-                        <a href="film1.html" class="btn btn-watch w-100">Klik Disini Untuk Nonton</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Tambahkan lebih banyak card sesuai kebutuhan -->
         </div>
-    </main>
+    </div>
 
     <footer class="container text-center py-4">
         <p>&copy; 2024 Film Collection. All Rights Reserved.</p>
