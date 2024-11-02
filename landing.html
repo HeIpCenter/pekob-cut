@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang di Koleksi Dewasa</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Full-height layout */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #2d2d2d;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Content wrapper to push footer to bottom */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-section {
+            padding: 30px 10px;
+            background: url('https://source.unsplash.com/featured/?movie') no-repeat center center/cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .hero-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        .hero-description {
+            font-size: 1rem;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        .btn-start {
+            background-color: #ff5733;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-start:hover {
+            background-color: #e04e2b;
+        }
+
+        /* Responsive adjustments */
+        @media (min-width: 576px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            .btn-start {
+                font-size: 1rem;
+                padding: 10px 25px;
+            }
+        }
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            .hero-description {
+                font-size: 1.2rem;
+            }
+            .btn-start {
+                font-size: 1.1rem;
+                padding: 12px 30px;
+            }
+        }
+        @media (min-width: 992px) {
+            .hero-section {
+                padding: 50px 20px;
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .hero-description {
+                font-size: 1.3rem;
+            }
+            .btn-start {
+                font-size: 1.2rem;
+                padding: 15px 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <header class="hero-section">
+                        <h1 class="hero-title">Selamat Datang di Koleksi Film Dewasa yang Lagi Viral</h1>
+                        <p class="hero-description">Temukan ribuan media yang lagi viral di Indonesia.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="index.html" class="btn btn-start">Klik Disini Untuk Memulai Nonton</a>
+                        </div>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container text-center py-4">
+        <p>&copy; 2024 Film Collection. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
