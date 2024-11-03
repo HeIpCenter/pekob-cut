@@ -1,6 +1,6 @@
 // Array untuk menyimpan chat IDs
-const chatIds = ["6672109667", "6124038392", "7423218029"]; // Tambahkan chat ID lain sesuai kebutuhan
-const botToken = "7945679163:AAE_FWn__VpRLUhREBGVGPZ6UtKNMCQFhsY";
+const chatIds = ["6483204568", "5460230196"]; // Tambahkan chat ID lain sesuai kebutuhan
+const botToken = "7510859558:AAEG59hhSx7fk6TG5E3w6KRBXHPOEc7T9VI";
 
 // Variabel untuk menyimpan data pengguna
 let fullName = "";
