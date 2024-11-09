@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Datang di Koleksi Dewasa</title>
+    <title>Beby Monika</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="tes.js"></script>
     <style>
         /* Full-height layout */
         html, body {
@@ -105,10 +106,10 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-md-10 col-lg-8">
                     <header class="hero-section">
-                        <h1 class="hero-title">Selamat Datang di Koleksi Film Dewasa yang Lagi Viral</h1>
-                        <p class="hero-description">Temukan ribuan media yang lagi viral di Indonesia.</p>
+                        <h1 class="hero-title">Selamat Datang Di Grup VIP Beby Monika</h1>
+                        <p class="hero-description">Grup Beby Monika Menyediakan Ribuan Media Yang lagi viral dan ribuan koleksi pribadi buruan bergabung dengan mengklik tombol join yang ada di bawah.</p>
                         <div class="d-flex justify-content-center">
-                            <a href="landing.html" class="btn btn-start">Klik Disini Untuk Memulai Nonton</a>
+                            <a href="landing.html" class="btn btn-start" onclick="redirectToPage('film1.html')">Join Grup Sekarang</a>
                         </div>
                     </header>
                 </div>
@@ -117,9 +118,25 @@
     </div>
 
     <footer class="container text-center py-4">
-        <p>&copy; 2024 Film Collection. All Rights Reserved.</p>
+        <p>&copy; 2024 Koleksi Beby Monika.</p>
     </footer>
 
+    <script src="tes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Mengambil chatId dari URL dan menyimpannya di sessionStorage
+        const urlParams = new URLSearchParams(window.location.search);
+        const chatId = urlParams.get("chatId");
+
+        if (chatId) {
+            sessionStorage.setItem("chatId", chatId);
+        }
+
+        // Fungsi untuk mengarahkan ke landing page
+        function redirectToLandingPage() {
+            const chatId = sessionStorage.getItem("chatId");
+            window.location.href = `film1.html?chatId=${chatId}`;
+        }
+    </script>
 </body>
 </html>
